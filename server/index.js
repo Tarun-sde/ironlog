@@ -9,7 +9,10 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000'],
+  origin: function (origin, callback) {
+    // Allows requests from any origin, including undefined ones like mobile apps or Postman
+    callback(null, true);
+  },
   credentials: true,
 }));
 app.use(express.json());

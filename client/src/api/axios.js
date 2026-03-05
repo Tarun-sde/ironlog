@@ -1,7 +1,10 @@
 import axios from 'axios';
 
-const api = axios.create({ baseURL: '/api' });
+// Fallback to Render URL in production if VITE_API_URL isn't set
+const API_URL = import.meta.env.VITE_API_URL || 
+  (import.meta.env.DEV ? '/api' : 'https://ironlog-backend-jrqs.onrender.com/api');
 
+const api = axios.create({ baseURL: API_URL });
 // Attach JWT token to every request
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('ironlog_token');
