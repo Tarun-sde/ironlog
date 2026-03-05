@@ -52,13 +52,8 @@ export default function LogWorkout() {
       if (existing) {
         exerciseId = existing._id;
       } else {
-        try {
-          const { data } = await api.post('/exercises', { name: form.exerciseName.trim(), category: 'Other' });
-          exerciseId = data._id;
-          setExercises(prev => [...prev, data]);
-        } catch {
-          toast.error('Could not create exercise'); return;
-        }
+        toast.error('Exercise not found. Please add it from the Exercises page first.');
+        return;
       }
     }
 
