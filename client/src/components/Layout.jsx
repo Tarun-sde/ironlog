@@ -39,7 +39,7 @@ export default function Layout() {
 
       <nav className={`sidebar${sidebarOpen ? ' open' : ''}`}>
         <div className="sidebar-header">
-          <div className="logo-icon">🏋️</div>
+          <img src="/favicon.png" alt="IronLog Logo" style={{ width: 32, height: 32, borderRadius: 8, objectFit: 'cover' }} />
           <span className="logo-text">IronLog</span>
         </div>
         <ul className="nav-menu" style={{ listStyle: 'none' }}>
